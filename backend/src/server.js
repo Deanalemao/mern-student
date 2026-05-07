@@ -14,7 +14,7 @@ const __dirname = path.resolve();
 
 //Middleware
 app.use(cors({
-  origin: 'http://localhost:5173', // Vite ports
+  origin: 'http://localhost:5001', // Same port for backend and frontend
   credentials: true
 }));
 app.use(express.json());
@@ -23,8 +23,9 @@ app.use(express.json());
 app.use("/api/students",studentRoute);
 
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
-app.get("*", (req,res) => {
-  res.sendFile(path.join(__dirname,"../frontend","dist","index.html"));
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api')) return next();
+  res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
 });
 
 connectDB().then(() =>{
