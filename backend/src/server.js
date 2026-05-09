@@ -4,21 +4,22 @@ import dotenv from "dotenv";
 import {connectDB} from "./config/db.js"
 import studentRoute from "./routes/studentRoute.js";
 import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
 console.log(process.env.MONGO_URL);
 
 const app = express();
 const PORT = process.env.PORT || 5001;
-const __dirname = path.resolve();
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const frontendDistPath = path.join(__dirname, "../../frontend/dist");
 
 //Middleware
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin) return callback(null, true);
 
-    if (origin.includes('localhost')) return callback(null, true);
-    if (origin.includes('127.0.0.1')) return callback(null, true);
+    if (origin && (origin.includes('localhost') || origin.includes('127.0.0.1'))) return callback(null, true);
 
     const allowedOrigins = [
       process.env.FRONTEND_URL,
@@ -36,12 +37,12 @@ app.use(cors({
 app.use(express.json());
 
 //Routes
-app.use("/api/students",studentRoute);
+app.use("/api/students", studentRoute);
 
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
+app.use(express.static(frontendDistPath));
 app.use((req, res, next) => {
   if (req.path.startsWith('/api')) return next();
-  res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  res.sendFile(path.join(frontendDistPath, 'index.html'));
 });
 
 connectDB().then(() =>{
