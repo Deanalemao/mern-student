@@ -12,37 +12,45 @@ FRONTEND_URL=https://your-frontend-app.onrender.com
 ```
 
 ### Frontend Environment Variables
-Set this in your Render frontend service:
-
-```
-VITE_API_URL=https://your-backend-app.onrender.com
-```
+No frontend `.env` is required for deployment.
+The frontend uses relative API calls to `/api`, and the backend serves the built static assets.
 
 ### Configuration Files Fixed
-- ✅ **tailwind.config.mjs**: Renamed from `.cjs` and updated to use ES module syntax
+- ✅ **tailwind.config.mjs**: Renamed and updated to use ES module syntax
 - ✅ **postcss.config.cjs**: Kept as CommonJS for PostCSS compatibility
-- ✅ **API client**: Updated to use axios with environment variables
-- ✅ **CORS**: Configured for production domains
+- ✅ **API client**: Uses relative `/api` paths by default
+- ✅ **CORS**: Configured for local dev and production frontend origins
 
-### Steps to Deploy:
+### Steps to Deploy as a Single Render Service:
 
-1. **Backend Deployment:**
-   - Create a new Web Service on Render
-   - Connect your GitHub repository
-   - Set the build command: `npm install`
-   - Set the start command: `npm run start`
-   - Add environment variables as listed above
+1. **Deploy one Web Service on Render** using this repository root.
+2. Set the build command:
+   - `npm install && npm run build`
+3. Set the start command:
+   - `npm run start`
+4. Use only the backend `.env` file under `backend/.env`.
 
-2. **Frontend Deployment:**
-   - Create a new Static Site on Render
-   - Connect your GitHub repository
-   - Set the build command: `npm run build`
-   - Set the publish directory: `dist`
-   - Add the VITE_API_URL environment variable
+### Backend `.env` Requirements
+Set these in Render:
 
-3. **Update URLs:**
-   - Replace `your-frontend-app.onrender.com` with your actual frontend URL
-   - Replace `your-backend-app.onrender.com` with your actual backend URL
+```
+MONGO_URL=your_mongodb_connection_string
+PORT=5001
+FRONTEND_URL=https://your-render-frontend-url.onrender.com
+```
+
+### Update URLs:
+- Replace `your-render-frontend-url.onrender.com` with your actual Render deployment URL.
+
+### Local Development:
+- Backend runs on `http://localhost:5001`
+- Frontend dev runs on `http://localhost:5173`
+- Vite proxies `/api` to `http://localhost:5001`, so no frontend env variable is needed
+
+### Troubleshooting:
+- If you get CORS errors, verify `FRONTEND_URL` in backend config
+- If API calls fail, confirm the backend is running and the repo root is deployed correctly
+- Verify Render logs if deployment fails
 
 ### Local Development:
 - Backend runs on `http://localhost:5001`

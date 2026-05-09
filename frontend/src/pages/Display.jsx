@@ -15,7 +15,7 @@ const Display = () => {
   const fetchStudents = async () => {
     try {
       setLoading(true);
-      const response = await apiClient.get('/api/students');
+      const response = await apiClient.get('/students');
       setStudents(response.data);
     } catch (error) {
       console.error('Error fetching students:', error);
@@ -28,7 +28,7 @@ const Display = () => {
   const deleteStudent = async (id) => {
     if (window.confirm('Are you sure you want to delete this student?')) {
       try {
-        await apiClient.delete(`/api/students/${id}`);
+        await apiClient.delete(`/students/${id}`);
         toast.success('Student deleted successfully');
         setStudents(students.filter(student => student._id !== id));
       } catch (error) {

@@ -23,7 +23,7 @@ const UpdateStudent = () => {
   const fetchStudent = async () => {
     try {
       setFetching(true);
-      const response = await apiClient.get(`/api/students/${id}`);
+      const response = await apiClient.get(`/students/${id}`);
       setFormData({
         name: response.data.name,
         rollno: response.data.rollno,
@@ -74,7 +74,7 @@ const UpdateStudent = () => {
 
     try {
       setLoading(true);
-      await apiClient.put(`/api/students/${id}`, formData);
+      await apiClient.put(`/students/${id}`, formData);
       toast.success('Student updated successfully!');
       setTimeout(() => {
         navigate('/display');

@@ -48,7 +48,7 @@ const InsertStudent = () => {
 
     try {
       setLoading(true);
-      await apiClient.post('/api/students', formData);
+      await apiClient.post('/students', formData);
       toast.success('Student added successfully!');
       setFormData({
         name: '',
