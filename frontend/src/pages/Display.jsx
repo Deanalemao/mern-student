@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import toast from 'react-hot-toast';
+import apiClient from '../config/api';
 
 const Display = () => {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const API_URL = 'http://localhost:5001/api/students';
 
   useEffect(() => {
     fetchStudents();
@@ -15,12 +15,8 @@ const Display = () => {
   const fetchStudents = async () => {
     try {
       setLoading(true);
-      const response = await fetch(API_URL);
-      if (!response.ok) {
-        throw new Error('Failed to fetch students');
-      }
-      const data = await response.json();
-      setStudents(data);
+      const response = await apiClient.get('/api/students');
+      setStudents(response.data);
     } catch (error) {
       console.error('Error fetching students:', error);
       toast.error('Failed to load students');
@@ -32,12 +28,7 @@ const Display = () => {
   const deleteStudent = async (id) => {
     if (window.confirm('Are you sure you want to delete this student?')) {
       try {
-        const response = await fetch(`${API_URL}/${id}`, {
-          method: 'DELETE',
-        });
-        if (!response.ok) {
-          throw new Error('Failed to delete student');
-        }
+        await apiClient.delete(`/api/students/${id}`);
         toast.success('Student deleted successfully');
         setStudents(students.filter(student => student._id !== id));
       } catch (error) {

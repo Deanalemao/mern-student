@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import toast from 'react-hot-toast';
+import apiClient from '../config/api';
 
 const InsertStudent = () => {
   const navigate = useNavigate();
@@ -12,8 +13,6 @@ const InsertStudent = () => {
     department: '',
     phoneno: '',
   });
-
-  const API_URL = 'http://localhost:5001/api/students';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,19 +48,7 @@ const InsertStudent = () => {
 
     try {
       setLoading(true);
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to add student');
-      }
-
-      await response.json();
+      await apiClient.post('/api/students', formData);
       toast.success('Student added successfully!');
       setFormData({
         name: '',

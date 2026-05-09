@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import toast from 'react-hot-toast';
+import apiClient from '../config/api';
 
 const UpdateStudent = () => {
   const { id } = useParams();
@@ -15,8 +16,6 @@ const UpdateStudent = () => {
     phoneno: '',
   });
 
-  const API_URL = 'http://localhost:5001/api/students';
-
   useEffect(() => {
     fetchStudent();
   }, [id]);
@@ -24,17 +23,13 @@ const UpdateStudent = () => {
   const fetchStudent = async () => {
     try {
       setFetching(true);
-      const response = await fetch(`${API_URL}/${id}`);
-      if (!response.ok) {
-        throw new Error('Failed to fetch student');
-      }
-      const data = await response.json();
+      const response = await apiClient.get(`/api/students/${id}`);
       setFormData({
-        name: data.name,
-        rollno: data.rollno,
-        age: data.age,
-        department: data.department,
-        phoneno: data.phoneno,
+        name: response.data.name,
+        rollno: response.data.rollno,
+        age: response.data.age,
+        department: response.data.department,
+        phoneno: response.data.phoneno,
       });
     } catch (error) {
       console.error('Error fetching student:', error);
@@ -79,18 +74,7 @@ const UpdateStudent = () => {
 
     try {
       setLoading(true);
-      const response = await fetch(`${API_URL}/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to update student');
-      }
-
+      await apiClient.put(`/api/students/${id}`, formData);
       toast.success('Student updated successfully!');
       setTimeout(() => {
         navigate('/display');

@@ -14,7 +14,7 @@ const __dirname = path.resolve();
 
 //Middleware
 app.use(cors({
-  origin: 'http://localhost:5001', // Same port for backend and frontend
+  origin: process.env.FRONTEND_URL || 'http://localhost:5001',
   credentials: true
 }));
 app.use(express.json());
