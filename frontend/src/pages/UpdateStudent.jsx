@@ -96,19 +96,19 @@ const UpdateStudent = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 py-8 sm:py-12 px-4 text-white">
-      <div className="mx-auto w-full max-w-lg rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 shadow-2xl shadow-black/30 backdrop-blur-xl">
-        <div className="mb-6 sm:mb-8 text-center">
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
+    <div className="min-h-screen bg-slate-950 py-6 sm:py-8 md:py-10 lg:py-12 px-4 sm:px-6 text-white overflow-x-hidden">
+      <div className="mx-auto w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 p-4 sm:p-6 md:p-8 shadow-2xl shadow-black/30 backdrop-blur-xl">
+        <div className="mb-4 sm:mb-6 md:mb-8 text-center">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
             Update Student
           </h1>
-          <p className="mt-3 text-slate-300 text-sm sm:text-base">Edit student details with a premium form experience.</p>
+          <p className="mt-2 sm:mt-3 text-slate-300 text-sm sm:text-base">Edit student details with a premium form experience.</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text text-white font-bold">Student Name *</span>
+              <span className="label-text text-white font-bold text-sm sm:text-base">Student Name *</span>
             </label>
             <input
               type="text"
@@ -116,14 +116,14 @@ const UpdateStudent = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="Enter student name"
-              className="input input-bordered w-full bg-white/10 border-white/20 text-white placeholder-slate-400 focus:border-cyan-400 focus:bg-white/15"
+              className="input input-bordered w-full bg-white/10 border-white/20 text-white placeholder-slate-400 focus:border-cyan-400 focus:bg-white/15 text-sm sm:text-base"
               required
             />
           </div>
 
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text text-white font-bold">Roll Number *</span>
+              <span className="label-text text-white font-bold text-sm sm:text-base">Roll Number *</span>
             </label>
             <input
               type="text"
@@ -131,15 +131,15 @@ const UpdateStudent = () => {
               value={formData.rollno}
               onChange={handleChange}
               placeholder="Enter roll number"
-              className="input input-bordered w-full bg-white/10 border-white/20 text-white placeholder-slate-400 focus:border-cyan-400 focus:bg-white/15"
+              className="input input-bordered w-full bg-white/10 border-white/20 text-white placeholder-slate-400 focus:border-cyan-400 focus:bg-white/15 text-sm sm:text-base"
               required
             />
           </div>
 
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:gap-5 sm:grid-cols-2">
             <div className="form-control w-full">
               <label className="label">
-                <span className="label-text text-white font-bold">Age *</span>
+                <span className="label-text text-white font-bold text-sm sm:text-base">Age *</span>
               </label>
               <input
                 type="number"
@@ -147,7 +147,7 @@ const UpdateStudent = () => {
                 value={formData.age}
                 onChange={handleChange}
                 placeholder="Enter age"
-                className="input input-bordered w-full bg-white/10 border-white/20 text-white placeholder-slate-400 focus:border-cyan-400 focus:bg-white/15"
+                className="input input-bordered w-full bg-white/10 border-white/20 text-white placeholder-slate-400 focus:border-cyan-400 focus:bg-white/15 text-sm sm:text-base"
                 min="1"
                 max="100"
                 required
@@ -156,13 +156,13 @@ const UpdateStudent = () => {
 
             <div className="form-control w-full">
               <label className="label">
-                <span className="label-text text-white font-bold">Department *</span>
+                <span className="label-text text-white font-bold text-sm sm:text-base">Department *</span>
               </label>
               <select
                 name="department"
                 value={formData.department}
                 onChange={handleChange}
-                className="select select-bordered w-full bg-white/10 border-white/20 text-white focus:border-cyan-400 focus:bg-white/15"
+                className="select select-bordered w-full bg-white/10 border-white/20 text-white focus:border-cyan-400 focus:bg-white/15 text-sm sm:text-base"
                 required
               >
                 <option value="" className="bg-slate-800 text-white">Select a department</option>
@@ -178,7 +178,7 @@ const UpdateStudent = () => {
 
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text text-white font-bold">Phone Number *</span>
+              <span className="label-text text-white font-bold text-sm sm:text-base">Phone Number *</span>
             </label>
             <input
               type="tel"
@@ -186,23 +186,23 @@ const UpdateStudent = () => {
               value={formData.phoneno}
               onChange={handleChange}
               placeholder="Enter phone number"
-              className="input input-bordered w-full bg-white/10 border-white/20 text-white placeholder-slate-400 focus:border-cyan-400 focus:bg-white/15"
+              className="input input-bordered w-full bg-white/10 border-white/20 text-white placeholder-slate-400 focus:border-cyan-400 focus:bg-white/15 text-sm sm:text-base"
               pattern="[0-9]{10}"
               required
             />
           </div>
 
-          <div className="flex flex-col gap-4 pt-4 sm:flex-row">
+          <div className="flex flex-col gap-3 pt-3 sm:flex-row sm:gap-4 sm:pt-4">
             <button
               type="submit"
-              className="btn w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0 shadow-xl hover:shadow-2xl disabled:opacity-60"
+              className="btn btn-sm sm:btn-md w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0 shadow-xl hover:shadow-2xl disabled:opacity-60"
               disabled={loading}
             >
               {loading ? 'Updating...' : '✅ Update Student'}
             </button>
             <button
               type="button"
-              className="btn w-full btn-ghost border border-white/20 text-white hover:bg-white/10"
+              className="btn btn-sm sm:btn-md w-full btn-ghost border border-white/20 text-white hover:bg-white/10"
               onClick={() => navigate('/display')}
             >
               Cancel

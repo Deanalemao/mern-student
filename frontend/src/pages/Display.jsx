@@ -47,7 +47,7 @@ const Display = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 py-10 text-white">
+    <div className="min-h-screen bg-slate-950 py-6 sm:py-8 md:py-10 lg:py-12 text-white overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-8">
           <div>
