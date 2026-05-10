@@ -39,10 +39,10 @@ app.use(express.json());
 //Routes
 app.use("/api/students", studentRoute);
 
-app.use(express.static(frontendDistPath));
-app.use((req, res, next) => {
-  if (req.path.startsWith('/api')) return next();
-  res.sendFile(path.join(frontendDistPath, 'index.html'));
+app.use(express.static(path.join(__dirname, "../../frontend/dist")));
+
+app.get(/(.*)/, (req, res) => {
+  res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
 });
 
 connectDB().then(() =>{
