@@ -5,6 +5,7 @@ import {connectDB} from "./config/db.js"
 import studentRoute from "./routes/studentRoute.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import fs from "fs";
 
 dotenv.config();
 console.log(process.env.MONGO_URL);
@@ -38,6 +39,9 @@ app.use(express.json());
 
 //Routes
 app.use("/api/students", studentRoute);
+
+console.log("Frontend path:", frontendDistPath);
+console.log("Index exists:", fs.existsSync(path.join(frontendDistPath, "index.html")));
 
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
