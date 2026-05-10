@@ -6,9 +6,9 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white relative overflow-hidden">
-      <div className="absolute -top-12 sm:-top-24 -right-12 sm:-right-24 w-40 h-40 sm:w-80 sm:h-80 rounded-full bg-purple-500/30 blur-2xl sm:blur-3xl animate-blob"></div>
-      <div className="absolute bottom-0 left-4 w-36 h-36 sm:w-72 sm:h-72 rounded-full bg-pink-500/20 blur-2xl sm:blur-3xl animate-blob animation-delay-2000"></div>
-      <div className="absolute top-1/4 left-1/3 w-48 h-48 sm:w-96 sm:h-96 rounded-full bg-cyan-500/10 blur-2xl sm:blur-3xl animate-blob animation-delay-4000"></div>
+      <div className="absolute -top-6 sm:-top-12 md:-top-24 -right-6 sm:-right-12 md:-right-24 w-24 h-24 sm:w-40 h-40 md:w-80 md:h-80 rounded-full bg-purple-500/30 blur-xl sm:blur-2xl md:blur-3xl animate-blob"></div>
+      <div className="absolute bottom-0 left-2 sm:left-4 w-20 h-20 sm:w-36 h-36 md:w-72 md:h-72 rounded-full bg-pink-500/20 blur-xl sm:blur-2xl md:blur-3xl animate-blob animation-delay-2000"></div>
+      <div className="absolute top-1/4 left-1/3 w-28 h-28 sm:w-48 h-48 md:w-96 md:h-96 rounded-full bg-cyan-500/10 blur-xl sm:blur-2xl md:blur-3xl animate-blob animation-delay-4000"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center mb-20">

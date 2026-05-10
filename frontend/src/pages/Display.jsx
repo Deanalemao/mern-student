@@ -81,35 +81,35 @@ const Display = () => {
             </button>
           </div>
         ) : (
-          <div className="overflow-x-auto rounded-3xl border border-white/10 bg-white/5 shadow-2xl shadow-black/20 backdrop-blur">
+          <div className="overflow-x-auto rounded-3xl border border-white/10 bg-white/5 shadow-2xl shadow-black/20 backdrop-blur hidden sm:block">
             <table className="table w-full text-left text-slate-100 text-sm sm:text-base">
               <thead className="bg-gradient-to-r from-purple-600 to-pink-600 text-white sticky top-0">
                 <tr>
-                  <th className="text-xs sm:text-sm lg:text-base">Name</th>
-                  <th className="text-xs sm:text-sm lg:text-base">Roll No</th>
-                  <th className="text-xs sm:text-sm lg:text-base">Age</th>
-                  <th className="text-xs sm:text-sm lg:text-base">Department</th>
-                  <th className="text-xs sm:text-sm lg:text-base">Phone</th>
-                  <th className="text-xs sm:text-sm lg:text-base">Actions</th>
+                  <th className="px-4 py-3 text-xs sm:text-sm lg:text-base">Name</th>
+                  <th className="px-4 py-3 text-xs sm:text-sm lg:text-base">Roll No</th>
+                  <th className="px-4 py-3 text-xs sm:text-sm lg:text-base">Age</th>
+                  <th className="px-4 py-3 text-xs sm:text-sm lg:text-base">Department</th>
+                  <th className="px-4 py-3 text-xs sm:text-sm lg:text-base">Phone</th>
+                  <th className="px-4 py-3 text-xs sm:text-sm lg:text-base">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10">
                 {students.map((student) => (
                   <tr key={student._id} className="hover:bg-white/10 transition-colors duration-200">
-                    <td className="font-semibold text-cyan-200">{student.name}</td>
-                    <td className="text-slate-200">{student.rollno}</td>
-                    <td className="text-slate-300">{student.age}</td>
-                    <td className="text-slate-300">{student.department}</td>
-                    <td className="text-slate-300">{student.phoneno}</td>
-                    <td className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:gap-2">
+                    <td className="px-4 py-3 font-semibold text-cyan-200">{student.name}</td>
+                    <td className="px-4 py-3 text-slate-200">{student.rollno}</td>
+                    <td className="px-4 py-3 text-slate-300">{student.age}</td>
+                    <td className="px-4 py-3 text-slate-300">{student.department}</td>
+                    <td className="px-4 py-3 text-slate-300">{student.phoneno}</td>
+                    <td className="px-4 py-3 flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:gap-2">
                       <button
-                        className="btn btn-sm bg-gradient-to-r from-emerald-500 to-teal-500 border-0 text-white shadow-lg hover:shadow-xl"
+                        className="btn btn-xs sm:btn-sm bg-gradient-to-r from-emerald-500 to-teal-500 border-0 text-white shadow-lg hover:shadow-xl"
                         onClick={() => navigate(`/update/${student._id}`)}
                       >
                         Edit
                       </button>
                       <button
-                        className="btn btn-sm bg-gradient-to-r from-red-500 to-pink-500 border-0 text-white shadow-lg hover:shadow-xl"
+                        className="btn btn-xs sm:btn-sm bg-gradient-to-r from-red-500 to-pink-500 border-0 text-white shadow-lg hover:shadow-xl"
                         onClick={() => deleteStudent(student._id)}
                       >
                         Delete
@@ -119,6 +119,39 @@ const Display = () => {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile Card View */}
+          <div className="block sm:hidden space-y-4">
+            {students.map((student) => (
+              <div key={student._id} className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/20 backdrop-blur hover:bg-white/10 transition-colors duration-200">
+                <div className="space-y-3">
+                  <div>
+                    <h3 className="text-xl font-bold text-cyan-200">{student.name}</h3>
+                    <p className="text-slate-300">Roll No: {student.rollno}</p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 text-sm text-slate-300">
+                    <div>Age: {student.age}</div>
+                    <div>Dept: {student.department}</div>
+                    <div className="col-span-2">Phone: {student.phoneno}</div>
+                  </div>
+                  <div className="flex gap-2 pt-2">
+                    <button
+                      className="btn btn-sm bg-gradient-to-r from-emerald-500 to-teal-500 border-0 text-white shadow-lg hover:shadow-xl flex-1"
+                      onClick={() => navigate(`/update/${student._id}`)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="btn btn-sm bg-gradient-to-r from-red-500 to-pink-500 border-0 text-white shadow-lg hover:shadow-xl flex-1"
+                      onClick={() => deleteStudent(student._id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </div>
