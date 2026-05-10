@@ -20,7 +20,7 @@ app.use(cors({
   origin: function (origin, callback) {
     if (!origin) return callback(null, true);
 
-    if (origin && (origin.includes('localhost') || origin.includes('127.0.0.1'))) return callback(null, true);
+    if (origin && (origin.includes('localhost') || origin.includes('127.0.0.1') || origin.includes('onrender.com'))) return callback(null, true);
 
     const allowedOrigins = [
       process.env.FRONTEND_URL,
