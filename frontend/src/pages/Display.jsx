@@ -101,7 +101,7 @@ const Display = () => {
                     <td className="text-slate-300">{student.age}</td>
                     <td className="text-slate-300">{student.department}</td>
                     <td className="text-slate-300">{student.phoneno}</td>
-                    <td className="flex flex-wrap gap-2">
+                    <td className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:gap-2">
                       <button
                         className="btn btn-sm bg-gradient-to-r from-emerald-500 to-teal-500 border-0 text-white shadow-lg hover:shadow-xl"
                         onClick={() => navigate(`/update/${student._id}`)}

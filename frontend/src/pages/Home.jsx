@@ -6,9 +6,9 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white relative overflow-hidden">
-      <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-purple-500/30 blur-3xl animate-blob"></div>
-      <div className="absolute bottom-0 left-4 w-72 h-72 rounded-full bg-pink-500/20 blur-3xl animate-blob animation-delay-2000"></div>
-      <div className="absolute top-1/4 left-1/3 w-96 h-96 rounded-full bg-cyan-500/10 blur-3xl animate-blob animation-delay-4000"></div>
+      <div className="absolute -top-12 sm:-top-24 -right-12 sm:-right-24 w-40 h-40 sm:w-80 sm:h-80 rounded-full bg-purple-500/30 blur-2xl sm:blur-3xl animate-blob"></div>
+      <div className="absolute bottom-0 left-4 w-36 h-36 sm:w-72 sm:h-72 rounded-full bg-pink-500/20 blur-2xl sm:blur-3xl animate-blob animation-delay-2000"></div>
+      <div className="absolute top-1/4 left-1/3 w-48 h-48 sm:w-96 sm:h-96 rounded-full bg-cyan-500/10 blur-2xl sm:blur-3xl animate-blob animation-delay-4000"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center mb-20">
