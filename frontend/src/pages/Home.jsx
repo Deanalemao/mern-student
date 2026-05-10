@@ -15,10 +15,10 @@ const Home = () => {
           <div className="inline-flex items-center justify-center rounded-full bg-white/10 px-5 py-3 mb-6 shadow-xl shadow-purple-500/20 backdrop-blur">
             <span className="text-lg font-semibold text-white">Modern student dashboard with clean design</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-transparent mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-transparent mb-6">
             Student Management System
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-slate-300">
+          <p className="mx-auto max-w-2xl text-base sm:text-lg text-slate-300">
             Manage student details with ease, add new records, update entries, and keep your data organized.
           </p>
         </div>

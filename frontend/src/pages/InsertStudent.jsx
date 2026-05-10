@@ -69,13 +69,13 @@ const InsertStudent = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 py-12 px-4 text-white">
-      <div className="mx-auto w-full max-w-lg rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl shadow-black/30 backdrop-blur-xl">
-        <div className="mb-8 text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
+    <div className="min-h-screen bg-slate-950 py-8 sm:py-12 px-4 text-white">
+      <div className="mx-auto w-full max-w-lg rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 shadow-2xl shadow-black/30 backdrop-blur-xl">
+        <div className="mb-6 sm:mb-8 text-center">
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
             Add New Student
           </h1>
-          <p className="mt-3 text-slate-300">Create a new student record with a modern form style.</p>
+          <p className="mt-3 text-slate-300 text-sm sm:text-base">Create a new student record with a modern form style.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">

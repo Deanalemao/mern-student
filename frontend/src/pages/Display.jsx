@@ -51,13 +51,13 @@ const Display = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-8">
           <div>
-            <h1 className="text-5xl font-bold tracking-tight bg-gradient-to-r from-cyan-300 to-purple-300 bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight bg-gradient-to-r from-cyan-300 to-purple-300 bg-clip-text text-transparent">
               All Students
             </h1>
-            <p className="mt-2 text-slate-300">Manage your class records with a polished student list.</p>
+            <p className="mt-2 text-slate-300 text-sm sm:text-base">Manage your class records with a polished student list.</p>
           </div>
           <button
-            className="btn bg-gradient-to-r from-pink-500 to-red-500 border-0 text-white font-bold shadow-xl hover:shadow-2xl"
+            className="btn btn-sm sm:btn-md bg-gradient-to-r from-pink-500 to-red-500 border-0 text-white font-bold shadow-xl hover:shadow-2xl"
             onClick={() => navigate('/insert')}
           >
             + Add New Student
@@ -82,15 +82,15 @@ const Display = () => {
           </div>
         ) : (
           <div className="overflow-x-auto rounded-3xl border border-white/10 bg-white/5 shadow-2xl shadow-black/20 backdrop-blur">
-            <table className="table w-full text-left text-slate-100">
+            <table className="table w-full text-left text-slate-100 text-sm sm:text-base">
               <thead className="bg-gradient-to-r from-purple-600 to-pink-600 text-white sticky top-0">
                 <tr>
-                  <th>Name</th>
-                  <th>Roll No</th>
-                  <th>Age</th>
-                  <th>Department</th>
-                  <th>Phone</th>
-                  <th>Actions</th>
+                  <th className="text-xs sm:text-sm lg:text-base">Name</th>
+                  <th className="text-xs sm:text-sm lg:text-base">Roll No</th>
+                  <th className="text-xs sm:text-sm lg:text-base">Age</th>
+                  <th className="text-xs sm:text-sm lg:text-base">Department</th>
+                  <th className="text-xs sm:text-sm lg:text-base">Phone</th>
+                  <th className="text-xs sm:text-sm lg:text-base">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10">
